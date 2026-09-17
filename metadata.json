@@ -1,0 +1,7 @@
+{
+  "name": "Văn Phòng Phẩm & Cửa Hàng Trực Tiếp",
+  "description": "Hệ thống bán lẻ & bán sỉ văn phòng phẩm online kết hợp cửa hàng offline, sẵn sàng quản lý hơn 2000 mã hàng với tra cứu tồn kho, đặt hàng và gợi ý nhận diện thương hiệu logo & slogan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
