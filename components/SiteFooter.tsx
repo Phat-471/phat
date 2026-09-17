@@ -2,163 +2,131 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useStore } from '@/lib/store-context';
-import { LogoIcon } from './LogoIcon';
-import { formatVND, DEFAULT_STORE_INFO } from '@/lib/stationery-data';
-import {
-  Store,
-  MapPin,
-  Clock,
-  PhoneCall,
-  Mail,
-  ShieldCheck,
-  RotateCcw,
-  Truck,
-  FileText,
-  ScanBarcode,
-  Settings,
-  AlertCircle
-} from 'lucide-react';
 
 export const SiteFooter: React.FC = () => {
-  const { currentBrand, minOrderValue, minOrderEnabled } = useStore();
-
   return (
-    <footer className="bg-slate-900 text-white border-t border-slate-800 pt-10 pb-24 md:pb-10 px-4 text-xs mt-auto">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-        {/* Brand & Slogan */}
+    <footer className="bg-[#101b2c] text-[#d7deea] mt-6 font-sans">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-5 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Col 1 */}
         <div className="space-y-3">
           <div className="flex items-center gap-2.5">
-            <LogoIcon type={currentBrand.logoType} color={currentBrand.primaryColor} size={36} />
-            <div>
-              <div className="font-extrabold text-base text-white">{currentBrand.name}</div>
-              <div className="text-slate-400 text-[11px] italic">&ldquo;{currentBrand.tagline}&rdquo;</div>
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0c7be9] to-[#054ea7] text-white grid place-items-center text-lg font-black shrink-0">
+              ✦
             </div>
+            <h3 className="text-white text-base font-bold tracking-tight">Văn Phòng Xanh</h3>
           </div>
-          <p className="text-slate-400 text-xs leading-relaxed">
-            Hệ thống cung cấp văn phòng phẩm toàn diện cho doanh nghiệp, trường học và cá nhân. Cam kết 100% hàng chính hãng, giao hỏa tốc 2 giờ nội thành hoặc ghé cửa hàng lấy sau 15 phút.
+          <p className="text-xs text-[#aeb9ca] leading-relaxed">
+            Dụng cụ văn phòng · Nâng tầm hiệu suất.
           </p>
-
-          {/* Min Order Notice */}
-          <div className="p-2.5 rounded-xl bg-slate-800/90 border border-slate-700 space-y-1">
-            <div className="flex items-center gap-1.5 text-amber-300 font-bold text-[11px]">
-              <AlertCircle className="w-3.5 h-3.5" />
-              <span>Chính sách đơn hàng tối thiểu</span>
-            </div>
-            <p className="text-[11px] text-slate-300">
-              {minOrderEnabled ? (
-                <>
-                  Áp dụng mức tối thiểu <strong>{formatVND(minOrderValue)}</strong> khi giao hàng tận nơi.{' '}
-                  <Link href="/account" className="text-amber-400 underline hover:text-white">
-                    Chỉnh sửa trong Admin
-                  </Link>
-                </>
-              ) : (
-                <>Hiện đang tắt điều kiện đơn hàng tối thiểu.</>
-              )}
-            </p>
-          </div>
+          <p className="text-xs text-[#aeb9ca] leading-relaxed">
+            Hơn 2.000 sản phẩm chính hãng phục vụ học tập, làm việc và kinh doanh. Đóng gói cẩn thận, giao nhanh toàn quốc.
+          </p>
         </div>
 
-        {/* Store Info & Pickup */}
-        <div className="space-y-3">
-          <h5 className="font-bold text-sm text-white uppercase tracking-wider flex items-center gap-1.5">
-            <Store className="w-4 h-4 text-emerald-400" />
-            <span>Cửa Hàng Trực Tiếp</span>
-          </h5>
-          <div className="text-slate-400 space-y-2">
-            <p className="flex items-start gap-1.5">
-              <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-              <span>{DEFAULT_STORE_INFO.address}, {DEFAULT_STORE_INFO.wardDistrictCity}</span>
-            </p>
-            <p className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>{DEFAULT_STORE_INFO.openingHours}</span>
-            </p>
-            <p className="flex items-center gap-1.5">
-              <PhoneCall className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>Hotline / Zalo: {DEFAULT_STORE_INFO.hotline}</span>
-            </p>
-            <p className="flex items-center gap-1.5">
-              <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>{DEFAULT_STORE_INFO.email}</span>
-            </p>
-          </div>
-        </div>
-
-        {/* Quick Links & Pages */}
-        <div className="space-y-3">
-          <h5 className="font-bold text-sm text-white uppercase tracking-wider">
-            Các Trang Mua Sắm
-          </h5>
-          <ul className="text-slate-400 space-y-2">
+        {/* Col 2 */}
+        <div className="space-y-2.5">
+          <h3 className="text-white text-sm font-bold uppercase tracking-wider">Mua hàng</h3>
+          <ul className="space-y-2 text-xs text-[#aeb9ca]">
             <li>
-              <Link href="/" className="hover:text-emerald-400 transition-colors">
-                • Trang Chủ
+              <Link href="/products" className="hover:text-white transition">
+                Tất cả sản phẩm
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:text-emerald-400 transition-colors">
-                • Danh Mục Sản Phẩm (2.000+ mã hàng)
+              <Link href="/#promo" className="hover:text-white transition">
+                Chương trình khuyến mãi
               </Link>
             </li>
             <li>
-              <Link href="/cart" className="hover:text-emerald-400 transition-colors">
-                • Giỏ Hàng & Kiểm Tra Đơn Tối Thiểu
+              <Link href="/#brands" className="hover:text-white transition">
+                Thương hiệu phân phối
               </Link>
             </li>
             <li>
-              <Link href="/checkout" className="hover:text-emerald-400 transition-colors">
-                • Thanh Toán & Xuất Hóa Đơn VAT
+              <Link href="/orders" className="hover:text-white transition">
+                Tra cứu đơn hàng
               </Link>
             </li>
             <li>
-              <Link href="/orders" className="hover:text-emerald-400 transition-colors">
-                • Tra Cứu & Theo Dõi Đơn Hàng
-              </Link>
-            </li>
-            <li>
-              <Link href="/account" className="hover:text-emerald-400 transition-colors">
-                • Tài Khoản Khách Hàng & Cài Đặt Admin
+              <Link href="/pos" className="hover:text-cyan-300 text-cyan-400 font-semibold transition">
+                ⚡ Màn hình quầy thu ngân (POS)
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* Admin & POS system */}
-        <div className="space-y-3">
-          <h5 className="font-bold text-sm text-white uppercase tracking-wider">
-            Hệ Thống Quản Trị
-          </h5>
-          <div className="space-y-2">
-            <Link
-              href="/pos"
-              className="w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 font-bold text-xs transition-colors flex items-center justify-center gap-2 border border-slate-700 shadow-xs"
-            >
-              <ScanBarcode className="w-4 h-4 text-cyan-400" />
-              <span>Mở Màn Hình Bán Tại Quầy (POS)</span>
-            </Link>
+        {/* Col 3 */}
+        <div className="space-y-2.5">
+          <h3 className="text-white text-sm font-bold uppercase tracking-wider">Hỗ trợ khách hàng</h3>
+          <ul className="space-y-2 text-xs text-[#aeb9ca]">
+            <li>
+              <Link href="/#guide" className="hover:text-white transition">
+                Chính sách giao hàng
+              </Link>
+            </li>
+            <li>
+              <Link href="/#guide" className="hover:text-white transition">
+                Chính sách đổi trả 7 ngày
+              </Link>
+            </li>
+            <li>
+              <Link href="/#trust" className="hover:text-white transition">
+                Phương thức thanh toán
+              </Link>
+            </li>
+            <li>
+              <Link href="/#faq" className="hover:text-white transition">
+                Câu hỏi thường gặp (FAQ)
+              </Link>
+            </li>
+            <li>
+              <Link href="/admin" className="hover:text-amber-300 text-amber-400 font-semibold transition">
+                ⚙️ Trung tâm Quản trị Admin
+              </Link>
+            </li>
+          </ul>
+        </div>
 
-            <Link
-              href="/account"
-              className="w-full py-2 px-3 rounded-xl bg-amber-600/20 hover:bg-amber-600/30 text-amber-300 font-semibold text-xs transition-colors flex items-center justify-center gap-2 border border-amber-500/30"
-            >
-              <Settings className="w-3.5 h-3.5 text-amber-400" />
-              <span>Cài Đặt Đơn Hàng Tối Thiểu (Admin)</span>
-            </Link>
-
-            <div className="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-[11px] text-slate-300">
-              Chính sách cam kết: <strong>Đồng kiểm khi nhận hàng</strong> • <strong>Đổi trả 7 ngày</strong> • <strong>Hóa đơn VAT điện tử</strong>.
-            </div>
+        {/* Col 4 */}
+        <div className="space-y-2.5">
+          <h3 className="text-white text-sm font-bold uppercase tracking-wider">Thông tin liên hệ</h3>
+          <div className="space-y-2 text-xs text-[#aeb9ca]">
+            <p className="flex items-center gap-2">
+              <span>☎</span>
+              <a href="tel:0900000000" className="hover:text-white font-semibold">
+                0900 000 000 (Hotline miễn phí)
+              </a>
+            </p>
+            <p className="flex items-center gap-2">
+              <span>✉</span>
+              <a href="mailto:hello@vanphongxanh.vn" className="hover:text-white">
+                hello@vanphongxanh.vn
+              </a>
+            </p>
+            <p className="flex items-start gap-2">
+              <span>⌖</span>
+              <span>168 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh</span>
+            </p>
+            <p className="text-[11px] text-[#7f8ba0] pt-1">
+              Thời gian mở cửa: 07:30 - 21:00 hàng ngày (kể cả CN)
+            </p>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
-        <div>
-          © {new Date().getFullYear()} {currentBrand.name}. Bán online toàn quốc & Cửa hàng 168 Nguyễn Trãi, Q.1.
+      <div className="border-t border-[#263247] py-4 text-center text-[#7f8ba0] text-[11px]">
+        <div className="max-w-[1240px] mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <span>© 2026 Văn Phòng Xanh. Demo giao diện thương mại điện tử chuyên nghiệp.</span>
+          <div className="flex items-center gap-3">
+            <Link href="/products" className="hover:text-white transition">Sản phẩm</Link>
+            <span>•</span>
+            <Link href="/orders" className="hover:text-white transition">Đơn hàng</Link>
+            <span>•</span>
+            <Link href="/pos" className="hover:text-white transition">POS</Link>
+            <span>•</span>
+            <Link href="/admin" className="hover:text-white transition">Admin</Link>
+          </div>
         </div>
-        <div>Cam kết hàng chính hãng 100% • Hỗ trợ B2B chiết khấu cao</div>
       </div>
     </footer>
   );
